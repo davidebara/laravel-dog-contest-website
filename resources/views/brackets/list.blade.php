@@ -9,13 +9,13 @@
 
 <div class="card mx-4">
     <div class="card-header">
-        Dogs
+        Brackets
         <p class="text-info mb-0">ADMIN</p>
         <div class="float-end mt-0">
             <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Inapoi
             </a>
-            <a href="{{ route('dogs.create') }}" class="btn btn-info">Add new dog</a>
+            <a href="{{ route('brackets.create') }}" class="btn btn-info">Add new bracket</a>
         </div>
     </div>
     <div class="card-body">
@@ -25,30 +25,22 @@
                     <th>No.</th>
                     <th>Id</th>
                     <th>Name</th>
-                    <th>Birth year</th>
-                    <th>Weight</th>
-                    <th>Image</th>
-                    <th>Description</th>
-                    <th>Owner Id</th>
-                    <th>Verification</th>
+                    <th>Lower limit</th>
+                    <th>Upper limit</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($dogs as $dog)
+                @foreach ($brackets as $bracket)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $dog->id }}</td>
-                    <td>{{ $dog->name }}</td>
-                    <td>{{ $dog->birth_year }}</td>
-                    <td>{{ $dog->weight . " kg"}}</td>
-                    <td>{{ $dog->image }}</td>
-                    <td>{{ $dog->description }}</td>
-                    <td>{{ $dog->owner_id }}</td>
-                    <td>{{ $dog->verification }}</td>
+                    <td>{{ $bracket->id }}</td>
+                    <td>{{ $bracket->name }}</td>
+                    <td>{{ $bracket->lower_limit . " kg"}}</td>
+                    <td>{{ $bracket->upper_limit . " kg"}}</td>
                     <td>
-                        <a class="btn btn-success" href="{{ route('dogs.show', $dog->id) }}">View</a>
-                        <a class="btn btn-primary" href="{{ route('dogs.edit', $dog->id) }}">Edit</a>
-                        {{ Form::open(['method' => 'DELETE', 'route' => ['dogs.destroy', $dog->id], 'style' =>
+                        <a class="btn btn-success" href="{{ route('brackets.show', $bracket->id) }}">View</a>
+                        <a class="btn btn-primary" href="{{ route('brackets.edit', $bracket->id) }}">Edit</a>
+                        {{ Form::open(['method' => 'DELETE', 'route' => ['brackets.destroy', $bracket->id], 'style' =>
                         'display:inline']) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                         {{ Form::close() }}
@@ -59,7 +51,7 @@
         </table>
 
         <div class="d-flex justify-content-center">
-            {{ $dogs->links($paginationView) }}
+            {{ $brackets->links($paginationView) }}
         </div>
     </div>
 </div>

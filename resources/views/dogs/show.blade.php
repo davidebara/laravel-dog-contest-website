@@ -21,10 +21,16 @@
             <strong>Birth year: </strong> {{ $dogs->birth_year }}
         </div>
         <div class="form-group">
+            <strong>Weight: </strong> {{ $dogs->weight }}
+        </div>
+        <div class="form-group">
             <strong>Description: </strong> {{ $dogs->description }}
         </div>
         <div class="form-group">
             <strong>Owner: </strong> {{ $dogs->owner_id }}
+        </div>
+        <div class="form-group">
+            <strong>Verification: </strong> {{ $dogs->verification }}
         </div>
     </div>
 </div>

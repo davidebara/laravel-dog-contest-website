@@ -52,13 +52,16 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('screenings') }}">Contests</a>
+                            <a class="nav-link" href="{{ url('contests') }}">Contests</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('locations') }}">Dogs</a>
+                            <a class="nav-link" href="{{ url('dogs') }}">Dogs</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('actors') }}">Prizes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('brackets') }}">Brackets</a>
                         </li>
 
                         @can('access-crud-page')

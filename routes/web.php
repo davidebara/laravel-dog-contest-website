@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BracketController;
+use App\Http\Controllers\ContestController;
 use App\Http\Controllers\DogController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('dogs', DogController::class);
+Route::resource('contests', ContestController::class);
+Route::resource('brackets', BracketController::class);

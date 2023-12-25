@@ -25,6 +25,10 @@
             <input type="text" name="birth_year" class="form-control" value="{{ $dogs->birth_year }}">
         </div>
         <div class="mb-3">
+            <label for="weight" class="form-label">Weight (kg)</label>
+            <input type="number" name="weight" class="form-control" value="{{ $dogs->weight }}">
+        </div>
+        <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <textarea type="text" name="image" class="form-control">{{ $dogs->image }}</textarea>
         </div>
@@ -35,6 +39,10 @@
         <div class="mb-3">
             <label for="owner_id" class="form-label">Owner</label>
             <textarea type="text" name="owner_id" class="form-control">{{ $dogs->owner_id }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="verification" class="form-label">Verification</label>
+            <textarea type="number" name="verification" class="form-control">{{ $dogs->verification }}</textarea>
         </div>
         <button type="submit" class="btn btn-info">Save</button>
         <a href="{{ route('dogs.index') }}" class="btn btn-outline-secondary">Cancel</a>

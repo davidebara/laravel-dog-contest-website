@@ -25,6 +25,10 @@
                     <input type="text" name="birth_year" class="form-control" value="{{ old('birth_year') }}">
                 </div>
                 <div class="mb-3">
+                    <label for="weight" class="form-label">Weight (kg)</label>
+                    <input type="number" name="weight" class="form-control" value="{{ old('weight') }}">
+                </div>
+                <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
                     <input type="text" name="image" class="form-control" value="{{ old('image') }}">
                 </div>

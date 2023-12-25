@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dog extends Model
+class Bracket extends Model
 {
     public $fillable = [
         // 'id',
         'name',
-        'birth_year',
-        'weight',
-        'owner_id',
-        'image',
-        'description',
-        'verification',
+        'lower_limit',
+        'upper_limit',
     ];
 }
