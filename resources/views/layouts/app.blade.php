@@ -76,10 +76,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ url('contests') }}">Join a contest!</a>
-                        </li>
+                    <ul class="navbar-nav ms-auto">                        
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -94,6 +91,9 @@
                         </li>
                         @endif
                         @else
+                        <li class="nav-item">
+                            <a class="nav-link text-primary" href="{{ url('contests') }}">Join a contest!</a>
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
