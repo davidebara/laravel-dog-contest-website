@@ -12,9 +12,9 @@
         Dogs
         <p class="text-info mb-0">ADMIN</p>
         <div class="float-end mt-0">
-            <a href="{{ url('/') }}" class="btn btn-secondary">
+            <!-- <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Inapoi
-            </a>
+            </a> -->
             <a href="{{ route('dogs.create') }}" class="btn btn-info">Add new dog</a>
         </div>
     </div>
@@ -31,6 +31,7 @@
                     <th>Description</th>
                     <th>Owner Id</th>
                     <th>Verification</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,11 +48,13 @@
                     <td>{{ $dog->verification }}</td>
                     <td>
                         <a class="btn btn-success" href="{{ route('dogs.show', $dog->id) }}">View</a>
+                        @can('access-crud-page')
                         <a class="btn btn-primary" href="{{ route('dogs.edit', $dog->id) }}">Edit</a>
                         {{ Form::open(['method' => 'DELETE', 'route' => ['dogs.destroy', $dog->id], 'style' =>
                         'display:inline']) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                         {{ Form::close() }}
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

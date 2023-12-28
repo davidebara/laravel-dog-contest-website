@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bracket;
+use App\Models\Dog;
 use Illuminate\Http\Request;
 use App\Models\Contest;
 
@@ -14,14 +15,14 @@ class ContestController extends Controller
         $brackets = Bracket::pluck('name', 'id');
         return view('contests.list', compact('contests', 'brackets'))->with('i', 0)->with('paginationView', 'pagination');
     }
-    
+
 
     public function create()
     {
         $brackets = Bracket::pluck('name', 'id');
         return view('contests.create', compact('brackets'));
     }
-    
+
 
     public function store(Request $request)
     {
@@ -61,4 +62,5 @@ class ContestController extends Controller
         Contest::find($id)->delete();
         return redirect()->route('contests.index')->with('success', 'Contest removed successfully');
     }
+
 }

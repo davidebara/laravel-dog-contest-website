@@ -27,6 +27,7 @@
 
 
     <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Add this before </body> tag in your main layout file -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -77,7 +78,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ url('actors') }}">Join a contest!</a>
+                            <a class="nav-link text-primary" href="{{ url('contests') }}">Join a contest!</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -93,81 +94,6 @@
                         </li>
                         @endif
                         @else
-                        <!-- Additional Dropdown for Shopping Cart -->
-                        <li class="nav-item dropdown">
-
-
-                            <div class="dropdown">
-
-                                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown">
-                                    <i class="bi bi-cart" aria-hidden="true"></i> Cos
-                                    <span class="badge badge-pill" @if (count((array) session('cart'))>= 1)
-                                        style="background-color: red; border-radius: 50%; padding: 0.35em 0.55em;"
-                                        @endif
-                                        >
-                                        {{ count((array) session('cart')) }}
-                                    </span>
-                                </button>
-
-
-
-
-                                <div class="dropdown-menu" style="width: 170px;">
-
-                                    <div class="row total-header-section">
-                                        <div class="col-lg-6 col-sm-6 col-6">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                            <span class="badge badge-pill badge-danger">{{ count((array)session('cart'))
-                                                }}</span>
-                                        </div>
-
-                                        <?php $total = 0 ?>
-
-                                        @foreach((array) session('cart') as $id => $details)
-                                        <?php $total += $details['price'] * $details['quantity'] ?>
-                                        @endforeach
-                                        <div class="text-center">
-                                            Total: <h3 class="text-primary">{{ $total }} lei</h3>
-                                        </div>
-
-                                    </div>
-                                    @if(session('cart'))
-                                    @foreach(session('cart') as $id => $details)
-                                    <hr>
-                                    <div class="row cart-detail">
-                                        <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
-                                            <img src="{{ asset('images/' . $details['photo']) }}" style="width:50px;"
-                                                alt="..." />
-                                        </div>
-                                        <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
-                                            <strong>{{ $details['film_title'] }}</strong>
-                                            <h6>🗓️ {{ $details['date'] }}</h6>
-                                            <h6>⏰ {{ $details['time'] }}</h6>
-                                            <h6>🏷️ {{ $details['price'] }} lei</h6>
-                                            <h6>🎟️ {{ $details['quantity'] }}</h6>
-                                            <h6>📍 {{ $details['location_name'] }}</h6>
-                                            <h6 class="price text-primary"> {{ $details['quantity'] *
-                                                $details['price']}}
-                                                lei</h6>
-
-                                        </div>
-                                    </div>
-
-                                    @endforeach
-
-                                    @endif
-                                    @if($total > 0)
-                                    <div class="row">
-                                        <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
-                                            <a href="{{ url('cart') }}" class="btn btn-primary btn-block">Afisare
-                                                tot</a>
-                                        </div>
-                                    </div>
-                                    @endif
-
-                                </div>
-                            </div>
-                        </li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"

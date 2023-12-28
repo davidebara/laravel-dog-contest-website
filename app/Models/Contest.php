@@ -20,4 +20,9 @@ class Contest extends Model
         return $this->belongsTo(Bracket::class);
     }
 
+    public function dogs()
+    {
+        return $this->belongsToMany(Dog::class, 'contests_dogs');
+    }
+
 }

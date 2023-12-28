@@ -42,4 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+        /**
+     * Check if the user is an admin.
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->role; // Assuming 'role' is a boolean column in your 'users' table
+    }
+
+
+    public function dogs() {
+        return $this->hasMany(Dog::class, 'owner_id');
+    }
 }

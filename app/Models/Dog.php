@@ -17,4 +17,9 @@ class Dog extends Model
         'description',
         'verification',
     ];
+
+    public function contests()
+    {
+        return $this->belongsToMany(Contest::class, 'contests_dogs');
+    }
 }

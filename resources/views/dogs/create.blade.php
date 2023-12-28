@@ -38,7 +38,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="owner_id" class="form-label">Owner</label>
-                    <input type="text" name="owner_id" class="form-control" value="{{ old('owner_id') }}">
+                    <input type="text" name="owner_id" class="form-control" value="{{ Auth::id() }}" readonly>
                 </div>
                 
                 <button type="submit" class="btn btn-info">Adauga Film</button>

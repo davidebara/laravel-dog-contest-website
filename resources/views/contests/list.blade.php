@@ -10,6 +10,7 @@
 <div class="card mx-4">
     <div class="card-header">
         Contests
+        @can('access-crud-page')
         <p class="text-info mb-0">ADMIN</p>
         <div class="float-end mt-0">
             <a href="{{ url('/') }}" class="btn btn-secondary">
@@ -17,6 +18,7 @@
             </a>
             <a href="{{ route('contests.create') }}" class="btn btn-info">Add new contest</a>
         </div>
+        @endcan
     </div>
     <div class="card-body">
         <table class="table table-bordered table-stripped">
@@ -28,6 +30,7 @@
                     <th>Date</th>
                     <th>Prize</th>
                     <th>Bracket ID & Name</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,11 +44,13 @@
                     <td>{{ $contest->bracket->id }} - {{ $contest->bracket->name }}</td>
                     <td>
                         <a class="btn btn-success" href="{{ route('contests.show', $contest->id) }}">View</a>
+                        @can('access-crud-page')
                         <a class="btn btn-primary" href="{{ route('contests.edit', $contest->id) }}">Edit</a>
                         {{ Form::open(['method' => 'DELETE', 'route' => ['contests.destroy', $contest->id], 'style' =>
                         'display:inline']) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
                         {{ Form::close() }}
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
