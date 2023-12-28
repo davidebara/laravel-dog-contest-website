@@ -14,4 +14,10 @@ class Contest extends Model
         'prize',
         'bracket_id'
     ];
+
+    public function bracket()
+    {
+        return $this->belongsTo(Bracket::class);
+    }
+
 }

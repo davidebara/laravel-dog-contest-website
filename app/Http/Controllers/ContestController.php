@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bracket;
 use Illuminate\Http\Request;
 use App\Models\Contest;
 
@@ -10,14 +11,17 @@ class ContestController extends Controller
     public function index()
     {
         $contests = Contest::orderBy('id', 'ASC')->paginate(5);
-        return view('contests.list', compact('contests'))->with('i', 0)->with('paginationView', 'pagination');
+        $brackets = Bracket::pluck('name', 'id');
+        return view('contests.list', compact('contests', 'brackets'))->with('i', 0)->with('paginationView', 'pagination');
     }
     
 
     public function create()
     {
-        return view('contests.create');
+        $brackets = Bracket::pluck('name', 'id');
+        return view('contests.create', compact('brackets'));
     }
+    
 
     public function store(Request $request)
     {
@@ -37,8 +41,9 @@ class ContestController extends Controller
 
     public function edit($id)
     {
-        $contests = Contest::find($id);
-        return view('contests.edit', compact('contests'));
+        $contest = Contest::find($id);
+        $brackets = Bracket::pluck('name', 'id');
+        return view('contests.edit', compact('contest', 'brackets'));
     }
 
     public function update(Request $request, $id)

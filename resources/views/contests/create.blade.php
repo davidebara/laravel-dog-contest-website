@@ -30,10 +30,10 @@
                 </div>
                 <div class="mb-3">
                     <label for="bracket_id" class="form-label">Bracket</label>
-                    <input type="text" name="bracket_id" class="form-control" value="{{ old('bracket_id') }}">
+                    {!! Form::select('bracket_id', $brackets, old('bracket_id'), ['class' => 'form-control']) !!}
                 </div>
                 
-                <button type="submit" class="btn btn-info">Adauga Film</button>
+                <button type="submit" class="btn btn-info">Add Contest</button>
                 <a href="{{ route('contests.index') }}" class="btn btn-outline-secondary">Cancel</a>
             {{ Form::close() }}
         </div>

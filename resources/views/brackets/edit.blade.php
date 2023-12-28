@@ -15,19 +15,20 @@
         </div>
         @endif
 
-        {!! Form::model($brackets, ['method' => 'PATCH', 'route' => ['brackets.update', $brackets->id]]) !!}
+        {!! Form::model($bracket, ['method' => 'PATCH', 'route' => ['brackets.update', $bracket->id]]) !!}
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+            <input type="text" name="name" class="form-control" value="{{ $bracket->name }}">
         </div>
         <div class="mb-3">
             <label for="lower_limit" class="form-label">Lower limit (kg)</label>
-            <input type="number" name="lower_limit" class="form-control" value="{{ old('lower_limit') }}">
+            <input type="number" name="lower_limit" class="form-control" value="{{ $bracket->lower_limit }}">
         </div>
         <div class="mb-3">
             <label for="upper_limit" class="form-label">Upper limit (kg)</label>
-            <input type="number" name="upper_limit" class="form-control" value="{{ old('upper_limit') }}">
+            <input type="number" name="upper_limit" class="form-control" value="{{ $bracket->upper_limit }}">
         </div>
+
         <button type="submit" class="btn btn-info">Save</button>
         <a href="{{ route('brackets.index') }}" class="btn btn-outline-secondary">Cancel</a>
         {!! Form::close() !!}

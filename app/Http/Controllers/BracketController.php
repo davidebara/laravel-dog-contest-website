@@ -37,8 +37,8 @@ class BracketController extends Controller
 
     public function edit($id)
     {
-        $brackets = Bracket::find($id);
-        return view('brackets.edit', compact('brackets'));
+        $bracket = Bracket::find($id);
+        return view('brackets.edit', compact('bracket'));
     }
 
     public function update(Request $request, $id)

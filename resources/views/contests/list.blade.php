@@ -23,11 +23,11 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Id</th>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Date</th>
                     <th>Prize</th>
-                    <th>Bracket Id</th>
+                    <th>Bracket ID & Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
                     <td>{{ $contest->name }}</td>
                     <td>{{ $contest->date }}</td>
                     <td>{{ $contest->prize . " euro"}}</td>
-                    <td>{{ $contest->bracket_id }}</td>
+                    <td>{{ $contest->bracket->id }} - {{ $contest->bracket->name }}</td>
                     <td>
                         <a class="btn btn-success" href="{{ route('contests.show', $contest->id) }}">View</a>
                         <a class="btn btn-primary" href="{{ route('contests.edit', $contest->id) }}">Edit</a>
