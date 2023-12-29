@@ -17,4 +17,10 @@ class Dog extends Model
         'description',
         'verification',
     ];
+
+    public function contests()
+    {
+        return $this->belongsToMany(Contest::class, 'contest_dogs')
+                    ->withPivot('id', 'contest_id', 'dog_id', 'verification');
+    }
 }
