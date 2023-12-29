@@ -22,3 +22,6 @@ Route::get('/', function () {
 Route::resource('dogs', DogController::class);
 Route::resource('contests', ContestController::class);
 Route::resource('brackets', BracketController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
