@@ -6,6 +6,7 @@ use App\Http\Controllers\ContestController;
 use App\Http\Controllers\ContestDogController;
 use App\Http\Controllers\DogController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,15 +18,19 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware(['isAdmin'])->group(function () {
+    // All your admin routes go here
+    Route::get('/admin', 'AdminController@index');
+    // HOME
+    Route::get('/', [DogController::class, 'index'])
+        ->name('default');
 
-// HOME
-Route::get('/', [DogController::class, 'index'])
-    ->name('default');
-
-// RESOURCEFUL CONTROLLERS
-Route::resource('dogs', DogController::class);
-Route::resource('contests', ContestController::class);
-Route::resource('brackets', BracketController::class);
+    // RESOURCEFUL CONTROLLERS
+    Route::resource('dogs', DogController::class);
+    Route::resource('contests', ContestController::class);
+    Route::resource('brackets', BracketController::class);
+    // Other admin routes...
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
