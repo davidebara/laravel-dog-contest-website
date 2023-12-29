@@ -18,19 +18,19 @@
         {!! Form::model($contests, ['method' => 'PATCH', 'route' => ['contests.update', $contests->id]]) !!}
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+            <input type="text" name="name" class="form-control" value="{{ $contests->name }}">
         </div>
         <div class="mb-3">
             <label for="date" class="form-label">Date</label>
-            <input type="date" name="date" class="form-control" value="{{ old('date') }}">
+            <input type="date" name="date" class="form-control" value="{{ $contests->date }}">
         </div>
         <div class="mb-3">
             <label for="prize" class="form-label">Prize</label>
-            <input type="number" name="prize" class="form-control" value="{{ old('prize') }}">
+            <input type="number" name="prize" class="form-control" value="{{ $contests->prize }}">
         </div>
         <div class="mb-3">
             <label for="bracket_id" class="form-label">Bracket</label>
-            <input type="text" name="bracket_id" class="form-control" value="{{ old('bracket_id') }}">
+            <input type="text" name="bracket_id" class="form-control" value="{{ $contests->bracket_id }}">
         </div>
         <button type="submit" class="btn btn-info">Save</button>
         <a href="{{ route('contests.index') }}" class="btn btn-outline-secondary">Cancel</a>
