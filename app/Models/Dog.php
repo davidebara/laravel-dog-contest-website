@@ -20,6 +20,7 @@ class Dog extends Model
 
     public function contests()
     {
-        return $this->belongsToMany(Contest::class, 'contests_dogs');
+        return $this->belongsToMany(Contest::class, 'contest_dogs')
+                    ->withPivot('id', 'contest_id', 'dog_id', 'verification');
     }
 }

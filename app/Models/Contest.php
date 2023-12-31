@@ -15,14 +15,9 @@ class Contest extends Model
         'bracket_id'
     ];
 
-    public function bracket()
-    {
-        return $this->belongsTo(Bracket::class);
-    }
-
     public function dogs()
     {
-        return $this->belongsToMany(Dog::class, 'contests_dogs');
+        return $this->belongsToMany(Dog::class, 'contest_dogs')
+        ->withPivot(['id', 'contest_id', 'dog_id', 'verification']);
     }
-
 }

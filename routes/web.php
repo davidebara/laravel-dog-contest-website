@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BracketController;
+use App\Http\Controllers\ContestantController;
 use App\Http\Controllers\ContestController;
 use App\Http\Controllers\ContestDogController;
 use App\Http\Controllers\DogController;
@@ -29,8 +30,9 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('dogs', DogController::class);
     Route::resource('contests', ContestController::class);
     Route::resource('brackets', BracketController::class);
-    Route::resource('contestant', ContestDogController::class);
+    Route::resource('contestant', ContestantController::class);
     // Other admin routes...
+    Route::get('/toggle-verification/{dogId}/{contestId}', [contestantController::class, 'toggleVerification'])->name('contestant.toggleVerification');
 });
 Auth::routes();
 
