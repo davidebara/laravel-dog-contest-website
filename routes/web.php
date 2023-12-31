@@ -29,6 +29,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('dogs', DogController::class);
     Route::resource('contests', ContestController::class);
     Route::resource('brackets', BracketController::class);
+    Route::resource('contestant', ContestDogController::class);
     // Other admin routes...
 });
 Auth::routes();
