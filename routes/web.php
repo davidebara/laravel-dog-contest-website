@@ -32,7 +32,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('brackets', BracketController::class);
     Route::resource('contestant', ContestantController::class);
     // Other admin routes...
-    Route::get('/toggle-verification/{dogId}/{contestId}', [contestantController::class, 'toggleVerification'])->name('contestant.toggleVerification');
+    Route::get('/toggle-verification/{dogId}/{contestId}/{contestantPivotId}', [contestantController::class, 'toggleVerification'])->name('contestant.toggleVerification');
 });
 Auth::routes();
 

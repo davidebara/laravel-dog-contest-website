@@ -47,17 +47,18 @@ class ContestantController extends Controller
 
         return redirect()->route('contestant.index')->with('success', 'Dog removed from contest successfully.');
     }
-    public function toggleVerification($dogId, $contestId)
+    public function toggleVerification($dogId, $contestId, $contestantPivotId)
     {
         $dog = Dog::find($dogId);
         $contest = Contest::find($contestId);
 
         if ($dog && $contest) {
-            $pivotData = $dog->contests()->where('contest_id', $contestId)->first()->pivot;
-            $pivotData->verification = $pivotData->verification == 1 ? 0 : 1;
-            $pivotData->save();
+            $pivotData = $dog->contests()->wherePivot('id', $contestantPivotId)->first()->pivot;
+            if ($pivotData) {
+                $pivotData->verification = $pivotData->verification == 1 ? 0 : 1;
+                $pivotData->save();
+            }
         }
-
         return redirect()->route('contestant.index')->with('success', 'Dog verification status updated successfully.');
     }
 }

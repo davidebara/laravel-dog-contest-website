@@ -40,7 +40,7 @@
                                 {{ $event->pivot->verification == 1 ? '✅' : '❌' }}
                             </td>
                             <td>
-                                <a href="{{ route('contestant.toggleVerification', ['dogId' => $dog->id, 'contestId' => $event->id]) }}" class="btn btn-primary">Toggle Verification</a>
+                                <a href="{{ route('contestant.toggleVerification', ['dogId' => $dog->id, 'contestId' => $event->id, 'contestantPivotId' => $event->pivot->id]) }}" class="btn btn-primary">Toggle Verification</a>
                             </td>
                             <td>
                             <form action="{{ route('contestant.destroy', $event->pivot->id) }}" method="POST">
