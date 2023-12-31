@@ -9,6 +9,7 @@ class Owner extends Model
 {
     public $fillable = [
         // 'id',
+        'userid',
         'first_name',
         'last_name',
         'country',

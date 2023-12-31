@@ -15,7 +15,7 @@
                 </div>
             @endif
 
-            {{ Form::open(array('route' => 'dogs.store', 'method'=>'POST')) }}
+            {{ Form::open(array('route' => 'dogs_user.store', 'method'=>'POST')) }}
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" value="{{ old('name') }}">
@@ -46,7 +46,7 @@
                 </div>
                 
                 <button type="submit" class="btn btn-info">Adauga Film</button>
-                <a href="{{ route('dogs.index') }}" class="btn btn-outline-secondary">Cancel</a>
+                <a href="{{ route('dogs_user.index') }}" class="btn btn-outline-secondary">Cancel</a>
             {{ Form::close() }}
         </div>
     </div>

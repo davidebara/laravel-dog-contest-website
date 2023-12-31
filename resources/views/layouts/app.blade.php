@@ -52,6 +52,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                       
+
+                        @can('access-crud-page')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('contests') }}">Contests</a>
                         </li>
@@ -64,13 +67,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('brackets') }}">Brackets</a>
                         </li>
-
-                        @can('access-crud-page')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('users') }}">Utilizatori</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('dashboard') }}" class="nav-link text-info">Dashboard</a>
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a href="{{ route('dogs_user.index') }}" class="nav-link text-info">My dogs</a>
                         </li>
                         @endcan
                     </ul>
@@ -91,17 +96,26 @@
                         </li>
                         @endif
                         @else
+                        @can('access-crud-page')
+                        @else
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ url('contests') }}">Join a contest!</a>
+                            <a class="nav-link text-primary" href="{{ route('contestant.index') }}">Join a contest!</a>
                         </li>
-
+                        @endcan
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
+
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        @can('access-crud-page')
+                        @else
+                                <a class="dropdown-item" href="{{ route('owner-profile.index') }}">
+                                    Owner Profile
+                                </a>
+                        @endcan
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

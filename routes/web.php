@@ -3,9 +3,12 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BracketController;
 use App\Http\Controllers\ContestantController;
+use App\Http\Controllers\ContestantUserController;
 use App\Http\Controllers\ContestController;
 use App\Http\Controllers\ContestDogController;
+use App\Http\Controllers\OwnerController;
 use App\Http\Controllers\DogController;
+use App\Http\Controllers\DogUserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,11 +35,14 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('brackets', BracketController::class);
     Route::resource('contestant', ContestantController::class);
     // Other admin routes...
-    Route::get('/toggle-verification/{dogId}/{contestId}/{contestantPivotId}', [contestantController::class, 'toggleVerification'])->name('contestant.toggleVerification');
+    Route::get('/toggle-verification/{dogId}/{contestId}/{contestantPivotId}', [ContestantController::class, 'toggleVerification'])->name('contestant.toggleVerification');
 });
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('owner-profile', OwnerController::class);
+Route::resource('dogs_user', DogUserController::class);
+Route::resource('contestant', ContestantUserController::class);
 
 // JOIN A CONTEST
 

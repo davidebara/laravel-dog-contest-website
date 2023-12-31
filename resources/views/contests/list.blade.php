@@ -41,7 +41,9 @@
                     <td>{{ $contest->name }}</td>
                     <td>{{ $contest->date }}</td>
                     <td>{{ $contest->prize . " euro"}}</td>
+                    @if ($contest->bracket)
                     <td>{{ $contest->bracket->id }} - {{ $contest->bracket->name }}</td>
+                    @endif
                     <td>
                         <a class="btn btn-success" href="{{ route('contests.show', $contest->id) }}">View</a>
                         @can('access-crud-page')
