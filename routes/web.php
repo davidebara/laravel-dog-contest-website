@@ -51,3 +51,11 @@ Route::resource('contestant', ContestantUserController::class);
 Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth', 'isAdmin'])
     ->name('dashboard');
+
+
+// Localizare
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    session()->put('locale', $locale);
+    return redirect()->back();
+});

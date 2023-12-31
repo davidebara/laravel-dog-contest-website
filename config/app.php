@@ -74,16 +74,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Locale Configuration
+    | Available locales
     |--------------------------------------------------------------------------
     |
-    | The application locale determines the default locale that will be used
-    | by the translation service provider. You are free to set this value
-    | to any of the locales which will be supported by the application.
+    | List all locales that your application works with
     |
     */
-
-    'locale' => 'en',
+    'available_locales' => [
+        'English' => 'en',
+        'Spanish' => 'sp',
+        'Romanian' => 'ro',
+        'Chinese' => 'ch',
+    ],
 
     /*
     |--------------------------------------------------------------------------

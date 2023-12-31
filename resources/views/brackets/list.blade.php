@@ -10,23 +10,23 @@
 <div class="card mx-4">
     <div class="card-header">
         Brackets
-        <p class="text-info mb-0">ADMIN</p>
+        <p class="text-info mb-0">{{ __('ADMIN') }}</p>
         <div class="float-end mt-0">
             <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Inapoi
             </a>
-            <a href="{{ route('brackets.create') }}" class="btn btn-info">Add new bracket</a>
+            <a href="{{ route('brackets.create') }}" class="btn btn-info">{{ __('Add new bracket') }}</a>
         </div>
     </div>
     <div class="card-body">
         <table class="table table-bordered table-stripped">
             <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Lower limit</th>
-                    <th>Upper limit</th>
+                    <th>{{ __('No.') }}</th>
+                    <th>{{ __('Id') }}</th>
+                    <th>{{ __('Name') }}</th>
+                    <th>{{ __('Lower limit') }}</th>
+                    <th>{{ __('Upper limit') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -38,8 +38,8 @@
                     <td>{{ $bracket->lower_limit . " kg"}}</td>
                     <td>{{ $bracket->upper_limit . " kg"}}</td>
                     <td>
-                        <a class="btn btn-success" href="{{ route('brackets.show', $bracket->id) }}">View</a>
-                        <a class="btn btn-primary" href="{{ route('brackets.edit', $bracket->id) }}">Edit</a>
+                        <a class="btn btn-success" href="{{ route('brackets.show', $bracket->id) }}">{{ __('View') }}</a>
+                        <a class="btn btn-primary" href="{{ route('brackets.edit', $bracket->id) }}">{{ __('Edit') }}</a>
                         {{ Form::open(['method' => 'DELETE', 'route' => ['brackets.destroy', $bracket->id], 'style' =>
                         'display:inline']) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}

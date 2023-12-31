@@ -3,7 +3,7 @@
 @section('content')
 <div class="card mx-4">
     <div class="card-header">
-        <p class="mb-0">Vizualizare Film</p>
+        <p class="mb-0">{{ __('Vizualizare Film') }}</p>
         <div class="float-end">
             <a class="btn btn-secondary" href="{{ route('dogs.index') }}"><i class="bi bi-arrow-left"></i> Back</a>
         </div>

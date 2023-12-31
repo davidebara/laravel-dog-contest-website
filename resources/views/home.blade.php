@@ -13,6 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+                        {{ __('Welcome to our website!') }}
+                    </div>
 
                     {{ __('You are logged in!') }}
                 </div>

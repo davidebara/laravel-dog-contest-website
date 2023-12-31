@@ -16,7 +16,7 @@
             <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Back
             </a>
-            <a href="{{ route('contests.create') }}" class="btn btn-info">Add new contest</a>
+            <a href="{{ route('contests.create') }}" class="btn btn-info">{{ __('Add new contest') }}</a>
         </div>
         @endcan
     </div>
@@ -24,13 +24,13 @@
         <table class="table table-bordered table-stripped">
             <thead>
                 <tr>
-                    <th>No.</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Date</th>
-                    <th>Prize</th>
-                    <th>Bracket ID & Name</th>
-                    <th>Actions</th>
+                    <th>{{ __('No.') }}') }}</th>
+                    <th>{{ __('ID') }}</th>
+                    <th>{{ __('Name') }}</th>
+                    <th>{{ __('Date') }}</th>
+                    <th>{{ __('Prize') }}</th>
+                    <th>{{ __('Bracket ID & Name') }}</th>
+                    <th>{{ __('Actions') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,9 +45,9 @@
                     <td>{{ $contest->bracket->id }} - {{ $contest->bracket->name }}</td>
                     @endif
                     <td>
-                        <a class="btn btn-success" href="{{ route('contests.show', $contest->id) }}">View</a>
+                        <a class="btn btn-success" href="{{ route('contests.show', $contest->id) }}">{{ __('View') }}</a>
                         @can('access-crud-page')
-                        <a class="btn btn-primary" href="{{ route('contests.edit', $contest->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('contests.edit', $contest->id) }}">{{ __('Edit') }}</a>
                         {{ Form::open(['method' => 'DELETE', 'route' => ['contests.destroy', $contest->id], 'style' =>
                         'display:inline']) }}
                         {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}

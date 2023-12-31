@@ -15,7 +15,7 @@
             <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Inapoi
             </a>
-            <a href="{{ route('contestant.create') }}" class="btn btn-info">Add new contestant</a>
+            <a href="{{ route('contestant.create') }}" class="btn btn-info">{{ __('Add new contestant') }}</a>
         </div>
     </div>
     <div class="card-body">
@@ -23,9 +23,9 @@
         <table class="table table-bordered table-stripped">
             <thead>
                 <tr>
-                    <th>Nume</th>
-                    <th>Event</th>
-                    <th>Verified</th>
+                    <th>{{ __('Nume') }}</th>
+                    <th>{{ __('Event') }}</th>
+                    <th>{{ __('Verified') }}</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -41,7 +41,7 @@
                             </td>
                             @can('access-crud-page')
                             <td>
-                                <a href="{{ route('contestant.toggleVerification', ['dogId' => $dog->id, 'contestId' => $event->id, 'contestantPivotId' => $event->pivot->id]) }}" class="btn btn-primary">Toggle Verification</a>
+                                <a href="{{ route('contestant.toggleVerification', ['dogId' => $dog->id, 'contestId' => $event->id, 'contestantPivotId' => $event->pivot->id]) }}" class="btn btn-primary">{{ __('Toggle Verification') }}</a>
                             </td>
                             @endcan
                             <td>
@@ -49,7 +49,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <input type="hidden" name="event_id" value='{{ $event->id }}' method="POST">
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger">{{ __('Delete') }}</button>
                             </form>
                         </td>
                         </tr>

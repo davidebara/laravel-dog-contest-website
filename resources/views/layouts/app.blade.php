@@ -47,41 +47,34 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                       
+                        @if ( Config::get('app.locale') == 'ch')
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSo18f0J5phUG57ldcoZG6eTzl124KaTRK_l2cjoC-K-6kY0F3l" alt="Emoji" style="height: 50px; width: 50px;">
+                    @endif
 
-                        @can('access-crud-page')
+                        @if(Auth::check() && Auth::user()->role == 1)
+
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('contests') }}">Contests</a>
+                            <a class="nav-link" href="{{ url('contests') }}">{{ __('Contests')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('dogs') }}">Dogs</a>
+                            <a class="nav-link" href="{{ url('dogs') }}">{{ __('Dogs') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('actors') }}">Prizes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('brackets') }}">Brackets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('users') }}">Utilizatori</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('dashboard') }}" class="nav-link text-info">Dashboard</a>
+                            <a class="nav-link" href="{{ url('brackets') }}">{{ __('Brackets') }}</a>
                         </li>
                         @else
                         <li class="nav-item">
-                            <a href="{{ route('dogs_user.index') }}" class="nav-link text-info">My dogs</a>
+                            <a href="{{ route('dogs_user.index') }}" class="nav-link text-info">{{ __('My dogs') }}</a>
                         </li>
-                        @endcan
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">                        
+                        @include('partials/language_switcher')
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
@@ -99,7 +92,7 @@
                         @can('access-crud-page')
                         @else
                         <li class="nav-item">
-                            <a class="nav-link text-primary" href="{{ route('contestant.index') }}">Join a contest!</a>
+                            <a class="nav-link text-primary" href="{{ route('contestant.index') }}">{{ __('Join a contest') }}</a>
                         </li>
                         @endcan
                         <li class="nav-item dropdown">
