@@ -3,4 +3,5 @@
 - Schimbarea modelelor de Contest si Dog pentru a defini relatiile intre ele
 - Adaugarea unei noi tabele de contest_dogs cu foreign keys catre contest si dog
 - Adaugarea unui nou row in tabela de owner 'userid' pentru a defini relatiile intre user si owner
-- 
+- Adaugare owner profile. Un simplu user isi poate crea un owner profile pentru a putea lega animalutul de contul lui.
+- Adaugare localizare: Engleza, Spaniola, Engleza

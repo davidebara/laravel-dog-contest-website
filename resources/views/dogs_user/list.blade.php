@@ -15,7 +15,7 @@
             <!-- <a href="{{ url('/') }}" class="btn btn-secondary">
                 <i class="bi bi-arrow-left"></i> Inapoi
             </a> -->
-            <a href="{{ route('dogs.create') }}" class="btn btn-info">{{ __('Add new dog') }}</a>
+            <a href="{{ route('dogs_user.create') }}" class="btn btn-info">{{ __('Add new dog') }}</a>
         </div>
     </div>
     <div class="card-body">
