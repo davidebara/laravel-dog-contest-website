@@ -30,7 +30,6 @@
                     <th>{{ __('Image') }}</th>
                     <th>{{ __('Description') }}</th>
                     <th>{{ __('Owner Id') }}</th>
-                    <th>{{ __('Verification') }}</th>
                     <th>{{ __('Actions') }}</th>
                 </tr>
             </thead>
@@ -45,7 +44,6 @@
                     <td>{{ $dog->image }}</td>
                     <td>{{ $dog->description }}</td>
                     <td>{{ $dog->owner_id }}</td>
-                    <td>{{ $dog->verification }}</td>
                     <td>
                         <a class="btn btn-success" href="{{ route('dogs_user.show', $dog->id) }}">{{ __('View') }}</a>
                         @can('access-crud-page')

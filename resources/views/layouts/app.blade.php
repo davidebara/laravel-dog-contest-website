@@ -65,7 +65,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('brackets') }}">{{ __('Brackets') }}</a>
                         </li>
-                        @else
+                        @elseif(Auth::check() && Auth::user()->role == 0)
                         <li class="nav-item">
                             <a href="{{ route('dogs_user.index') }}" class="nav-link text-info">{{ __('My dogs') }}</a>
                         </li>
@@ -89,12 +89,11 @@
                         </li>
                         @endif
                         @else
-                        @can('access-crud-page')
-                        @else
+                        @if(Auth::check() && Auth::user()->role == 0)
                         <li class="nav-item">
                             <a class="nav-link text-primary" href="{{ route('contestant.index') }}">{{ __('Join a contest') }}</a>
                         </li>
-                        @endcan
+                        @endif
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
